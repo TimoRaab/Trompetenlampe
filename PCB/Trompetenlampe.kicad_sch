@@ -5,6 +5,291 @@
 	(uuid "74565093-eec5-4901-8b54-4f43dfffaa42")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Converter_ACDC:MFM-15-12"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "PS"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MFM-15-12"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Converter_ACDC:Converter_ACDC_MeanWell_MFM-15-xx_THT"
+				(at 0 -8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.meanwell.com/Upload/PDF/MFM-15/MFM-15-SPEC.PDF"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Meanwell AC/DC converter, 80-264VAC, output 12V, 15 watts"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Miniature Module-type Power Supply MeanWell"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Converter*ACDC*MeanWell*MFM*15*THT*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MFM-15-12_0_1"
+				(rectangle
+					(start -7.62 5.08)
+					(end 7.62 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(arc
+					(start -5.334 0.635)
+					(mid -4.699 0.2495)
+					(end -4.064 0.635)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -2.794 0.635)
+					(mid -3.429 1.0072)
+					(end -4.064 0.635)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.334 -0.635) (xy -2.794 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 -0.635) (xy 5.334 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 0.635) (xy 3.302 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 0.635) (xy 4.318 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.826 0.635) (xy 5.334 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MFM-15-12_1_1"
+				(pin power_in line
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(name "AC/L"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(name "AC/N"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "-Vo"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 10.16 2.54 180)
+					(length 2.54)
+					(name "+Vo"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:LED"
 			(pin_numbers hide)
 			(pin_names
@@ -1424,12 +1709,114 @@
 				)
 			)
 		)
-	)
-	(junction
-		(at 152.4 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0381308d-a3a0-485d-8217-e95d882ee24f")
+		(symbol "power:VS"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "VS"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"VS\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "VS_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 1.27) (xy -0.762 1.27) (xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "VS_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 	)
 	(junction
 		(at 139.7 76.2)
@@ -1444,16 +1831,10 @@
 		(uuid "1bc974d3-2402-4e36-a5b7-edb26d787cf1")
 	)
 	(junction
-		(at 152.4 63.5)
+		(at 114.3 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2b040bed-c836-4990-be8c-7992113ce5f8")
-	)
-	(junction
-		(at 172.72 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "54080737-5b69-46d5-b04e-4fa5a4d49309")
+		(uuid "343867a5-27a0-410e-b1f3-3b64b94de94d")
 	)
 	(junction
 		(at 93.98 102.87)
@@ -1462,10 +1843,10 @@
 		(uuid "58c5d114-bbce-42df-af63-ba69a7b4a7e8")
 	)
 	(junction
-		(at 160.02 63.5)
+		(at 152.4 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7028a873-e78e-4c8f-809d-441afc589fa7")
+		(uuid "76fcd6bc-6362-4d09-b1b0-9e0acbf1ccf6")
 	)
 	(junction
 		(at 152.4 92.71)
@@ -1474,10 +1855,22 @@
 		(uuid "87ff509f-efda-4261-9bc9-fa3bc1f8e8e0")
 	)
 	(junction
+		(at 78.74 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "95bd1695-c0d9-4a46-8d89-a2bf2e7eafe8")
+	)
+	(junction
 		(at 152.4 81.28)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9d04fa46-c5bc-4e1a-b708-3f8dc48dd3dc")
+	)
+	(junction
+		(at 144.78 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff70f5b9-6d5d-41f5-828d-d2ebbf6dfbfb")
 	)
 	(wire
 		(pts
@@ -1491,6 +1884,16 @@
 	)
 	(wire
 		(pts
+			(xy 144.78 63.5) (xy 102.87 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0aead8f8-5947-4d59-b80f-ee0d24a8f7f6")
+	)
+	(wire
+		(pts
 			(xy 139.7 76.2) (xy 139.7 83.82)
 		)
 		(stroke
@@ -1501,13 +1904,23 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 92.71) (xy 172.72 96.52)
+			(xy 152.4 92.71) (xy 152.4 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "13b8fa4f-4117-4243-85ae-26302291b3c4")
+	)
+	(wire
+		(pts
+			(xy 72.39 102.87) (xy 78.74 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15e0dc76-44a5-4e75-b543-f6b229ab117f")
 	)
 	(wire
 		(pts
@@ -1531,6 +1944,16 @@
 	)
 	(wire
 		(pts
+			(xy 135.89 142.24) (xy 129.54 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "263b021e-8859-44d6-8197-f806ebfc1072")
+	)
+	(wire
+		(pts
 			(xy 114.3 149.86) (xy 78.74 149.86)
 		)
 		(stroke
@@ -1541,7 +1964,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 55.88) (xy 152.4 63.5)
+			(xy 144.78 55.88) (xy 144.78 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1571,6 +1994,16 @@
 	)
 	(wire
 		(pts
+			(xy 72.39 74.93) (xy 77.47 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52a98f10-0c99-41f7-8352-c3ecd19839f2")
+	)
+	(wire
+		(pts
 			(xy 114.3 111.76) (xy 114.3 87.63)
 		)
 		(stroke
@@ -1578,16 +2011,6 @@
 			(type default)
 		)
 		(uuid "5ae5a6c9-5311-4540-bed7-de41665be103")
-	)
-	(wire
-		(pts
-			(xy 152.4 92.71) (xy 172.72 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b3650a1-72eb-4b96-9a22-3f6a930ef8fb")
 	)
 	(wire
 		(pts
@@ -1601,13 +2024,13 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 63.5) (xy 172.72 63.5)
+			(xy 102.87 63.5) (xy 102.87 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "68feafcc-8d12-49cb-ad5a-85d6fbe721a4")
+		(uuid "723d09d9-c1ee-4fe1-9be2-e94c6794f9d5")
 	)
 	(wire
 		(pts
@@ -1621,16 +2044,6 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 55.88) (xy 102.87 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "89dae86d-5c07-433a-9a62-6cab224ce369")
-	)
-	(wire
-		(pts
 			(xy 102.87 74.93) (xy 77.47 74.93)
 		)
 		(stroke
@@ -1641,13 +2054,13 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 63.5) (xy 152.4 71.12)
+			(xy 114.3 85.09) (xy 114.3 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a7c8b205-0c6a-46cb-94f5-5c66d1a05006")
+		(uuid "9bbe387c-4962-471b-b6c9-b392f40882c8")
 	)
 	(wire
 		(pts
@@ -1681,6 +2094,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 63.5) (xy 152.4 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2313a81-8649-4ca3-a17a-34ddc08dbb80")
+	)
+	(wire
+		(pts
 			(xy 139.7 76.2) (xy 144.78 76.2)
 		)
 		(stroke
@@ -1701,13 +2124,13 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 116.84) (xy 135.89 116.84)
+			(xy 72.39 80.01) (xy 72.39 102.87)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cf97cced-bdd9-454f-b442-8aeb931ee473")
+		(uuid "cc7d39a7-198e-4149-8080-1060fbfee591")
 	)
 	(wire
 		(pts
@@ -1721,33 +2144,13 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 63.5) (xy 172.72 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d538edb2-9a0d-4566-ab2a-dada1b12b2ad")
-	)
-	(wire
-		(pts
-			(xy 135.89 116.84) (xy 135.89 76.2)
+			(xy 135.89 76.2) (xy 135.89 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "daf765e8-cf0a-425a-abc6-9bbafc1e4637")
-	)
-	(wire
-		(pts
-			(xy 102.87 55.88) (xy 102.87 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e40ecd1f-72a8-40bd-9d48-ae6586e41102")
 	)
 	(wire
 		(pts
@@ -1761,7 +2164,7 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 55.88) (xy 160.02 63.5)
+			(xy 152.4 55.88) (xy 152.4 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1837,7 +2240,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 156.21 55.88 0)
+		(at 148.59 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1846,7 +2249,7 @@
 		(fields_autoplaced yes)
 		(uuid "4113e08f-94da-4958-9ad6-11207638b7dc")
 		(property "Reference" "D2"
-			(at 154.6225 49.53 0)
+			(at 147.0025 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1854,7 +2257,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 154.6225 52.07 0)
+			(at 147.0025 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1862,7 +2265,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 55.88 0)
+			(at 148.59 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1871,7 +2274,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 156.21 55.88 0)
+			(at 148.59 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1880,7 +2283,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 156.21 55.88 0)
+			(at 148.59 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1898,6 +2301,72 @@
 			(project "Trompetenlampe"
 				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
 					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VS")
+		(at 114.3 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "52189d60-3fc1-4a4d-99fd-bcf68f9c0cab")
+		(property "Reference" "#PWR04"
+			(at 114.3 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "5V"
+			(at 114.3 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VS\""
+			(at 114.3 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3b270ad0-e838-47e1-b7ec-9bce1c35d0b5")
+		)
+		(instances
+			(project "Trompetenlampe"
+				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -1978,7 +2447,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 156.21 63.5 0)
+		(at 148.59 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1986,7 +2455,7 @@
 		(dnp no)
 		(uuid "6cece05e-5f9c-4ae4-9977-423df8f2259b")
 		(property "Reference" "D1"
-			(at 153.3525 57.15 0)
+			(at 145.7325 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1994,7 +2463,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 154.6225 59.69 0)
+			(at 147.0025 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2002,7 +2471,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 63.5 0)
+			(at 148.59 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2011,7 +2480,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 156.21 63.5 0)
+			(at 148.59 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2020,7 +2489,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 156.21 63.5 0)
+			(at 148.59 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2268,7 +2737,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "51k"
+		(property "Value" "100k"
 			(at 142.24 88.8999 0)
 			(effects
 				(font
@@ -2387,7 +2856,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 172.72 96.52 0)
+		(at 152.4 101.6 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2396,7 +2865,7 @@
 		(fields_autoplaced yes)
 		(uuid "d46fc68b-8a67-451c-bf63-8e5a49f35af2")
 		(property "Reference" "#PWR03"
-			(at 172.72 102.87 0)
+			(at 152.4 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2405,7 +2874,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 172.72 101.6 0)
+			(at 152.4 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2413,7 +2882,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 172.72 96.52 0)
+			(at 152.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2422,7 +2891,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 172.72 96.52 0)
+			(at 152.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2431,7 +2900,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 172.72 96.52 0)
+			(at 152.4 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2446,6 +2915,80 @@
 			(project "Trompetenlampe"
 				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Converter_ACDC:MFM-15-12")
+		(at 62.23 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f1f4b286-52ac-469c-aedd-70056a83d122")
+		(property "Reference" "PS1"
+			(at 62.23 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MFM-15-12"
+			(at 62.23 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Converter_ACDC:Converter_ACDC_MeanWell_MFM-15-xx_THT"
+			(at 62.23 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.meanwell.com/Upload/PDF/MFM-15/MFM-15-SPEC.PDF"
+			(at 62.23 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Meanwell AC/DC converter, 80-264VAC, output 12V, 15 watts"
+			(at 62.23 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "42211052-578f-418d-9c8d-beece5969f6a")
+		)
+		(pin "2"
+			(uuid "7b977928-1478-4e65-907e-8a84f1a12ae2")
+		)
+		(pin "3"
+			(uuid "9182def1-dfbc-4297-810a-2ea63723d83f")
+		)
+		(pin "4"
+			(uuid "630209ed-0745-4c25-847d-4b4248763874")
+		)
+		(instances
+			(project "Trompetenlampe"
+				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
+					(reference "PS1")
 					(unit 1)
 				)
 			)
