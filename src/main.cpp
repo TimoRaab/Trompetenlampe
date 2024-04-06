@@ -6,19 +6,24 @@
 //TODO PWM
 
 
-// put function declarations here:
-int myFunction(int, int);
+const int ledPin = 16; 
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  // increase the LED brightness
+  for(int dutyCycle = 0; dutyCycle < 255; dutyCycle++){   
+    // changing the LED brightness with PWM
+    analogWrite(ledPin, dutyCycle);
+    delay(1);
+  }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  // decrease the LED brightness
+  for(int dutyCycle = 255; dutyCycle > 0; dutyCycle--){
+    // changing the LED brightness with PWM
+    analogWrite(ledPin, dutyCycle);
+    delay(1);
+  }
 }
