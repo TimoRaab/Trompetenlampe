@@ -1198,6 +1198,178 @@
 				)
 			)
 		)
+		(symbol "Switch:SW_Reed"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_Reed"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "reed switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "reed magnetic switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_Reed_0_0"
+				(arc
+					(start -2.159 1.397)
+					(mid -3.55 0)
+					(end -2.159 -1.397)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0) (xy 1.27 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.159 -1.397) (xy 2.286 -1.397)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.159 1.397) (xy -2.159 1.397)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy -1.27 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 2.159 -1.397)
+					(mid 3.55 0)
+					(end 2.159 1.397)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_Reed_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Transistor_FET:IRLZ44N"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -1831,6 +2003,18 @@
 		(uuid "1bc974d3-2402-4e36-a5b7-edb26d787cf1")
 	)
 	(junction
+		(at 165.1 128.27)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "25d1405c-0189-4fbb-bf48-399ac4ecb1fa")
+	)
+	(junction
+		(at 165.1 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "29564236-e428-4d32-8509-e251db3da9b6")
+	)
+	(junction
 		(at 114.3 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1841,6 +2025,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "58c5d114-bbce-42df-af63-ba69a7b4a7e8")
+	)
+	(junction
+		(at 165.1 119.38)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7216ba86-bbd8-4069-824c-355d16575409")
 	)
 	(junction
 		(at 152.4 63.5)
@@ -1904,7 +2094,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 92.71) (xy 152.4 101.6)
+			(xy 165.1 92.71) (xy 165.1 119.38)
 		)
 		(stroke
 			(width 0)
@@ -1934,6 +2124,16 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 137.16) (xy 148.59 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19185194-b23d-4314-a22b-6a7af1fae551")
+	)
+	(wire
+		(pts
 			(xy 83.82 87.63) (xy 77.47 87.63)
 		)
 		(stroke
@@ -1941,6 +2141,16 @@
 			(type default)
 		)
 		(uuid "1994c0ad-e1bb-4c32-add8-1acc2a72b6fc")
+	)
+	(wire
+		(pts
+			(xy 165.1 119.38) (xy 165.1 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "204d5b1e-8bb4-4026-a1e9-68c71d01a891")
 	)
 	(wire
 		(pts
@@ -1954,6 +2164,16 @@
 	)
 	(wire
 		(pts
+			(xy 165.1 137.16) (xy 165.1 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "352a0ba6-65fb-4d3e-8569-67a7e1533314")
+	)
+	(wire
+		(pts
 			(xy 114.3 149.86) (xy 78.74 149.86)
 		)
 		(stroke
@@ -1961,6 +2181,16 @@
 			(type default)
 		)
 		(uuid "36eef37d-5c46-4172-b5e8-2d1d29ff9aff")
+	)
+	(wire
+		(pts
+			(xy 140.97 119.38) (xy 148.59 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38992f2e-f0b5-445f-98e2-22434d687d2b")
 	)
 	(wire
 		(pts
@@ -2034,6 +2264,36 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 132.08) (xy 140.97 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "790bb362-3024-481f-8f40-897856e2b33e")
+	)
+	(wire
+		(pts
+			(xy 140.97 132.08) (xy 140.97 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7fb36b0c-e502-4265-97cf-105411ae105d")
+	)
+	(wire
+		(pts
+			(xy 165.1 128.27) (xy 165.1 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81811c62-df4c-46ad-a3d4-78d438067361")
+	)
+	(wire
+		(pts
 			(xy 152.4 92.71) (xy 139.7 92.71)
 		)
 		(stroke
@@ -2041,6 +2301,16 @@
 			(type default)
 		)
 		(uuid "885cfe0b-19aa-4053-b2f3-7a28714117e4")
+	)
+	(wire
+		(pts
+			(xy 158.75 128.27) (xy 165.1 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "898d5be9-2b43-4c7f-949a-3e569e4ac60b")
 	)
 	(wire
 		(pts
@@ -2064,6 +2334,36 @@
 	)
 	(wire
 		(pts
+			(xy 129.54 134.62) (xy 143.51 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0432994-ebcb-4208-b0e7-6583638bd206")
+	)
+	(wire
+		(pts
+			(xy 143.51 128.27) (xy 148.59 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7396727-55fc-4c39-9cae-88f1fce09703")
+	)
+	(wire
+		(pts
+			(xy 143.51 134.62) (xy 143.51 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a78eb7b8-e04f-413d-8a3c-411174006b5b")
+	)
+	(wire
+		(pts
 			(xy 78.74 102.87) (xy 93.98 102.87)
 		)
 		(stroke
@@ -2071,6 +2371,26 @@
 			(type default)
 		)
 		(uuid "b3c8d92e-5218-43b1-9bf2-250951184740")
+	)
+	(wire
+		(pts
+			(xy 165.1 92.71) (xy 152.4 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b45c928e-c8d0-46da-91c2-5b1bdce90274")
+	)
+	(wire
+		(pts
+			(xy 158.75 119.38) (xy 165.1 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b7014613-e9b6-4144-bb19-6b1f63caa22a")
 	)
 	(wire
 		(pts
@@ -2141,6 +2461,16 @@
 			(type default)
 		)
 		(uuid "d08d0d59-28cd-4ff9-9c83-20e9522f2ca4")
+	)
+	(wire
+		(pts
+			(xy 158.75 137.16) (xy 165.1 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d72414b9-a66b-4b2a-b2a2-b5e7472b1cd9")
 	)
 	(wire
 		(pts
@@ -2239,6 +2569,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Reed")
+		(at 153.67 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1e5c13de-5b67-4558-9f20-fb35d366db6d")
+		(property "Reference" "SW1"
+			(at 153.67 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Reed_OnOff"
+			(at 153.67 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 153.67 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "reed switch"
+			(at 153.67 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "02baad36-ad4c-41dd-bbb2-0c2f42913599")
+		)
+		(pin "2"
+			(uuid "54e5d2ff-54da-4e13-ae83-f1ce9e2999d1")
+		)
+		(instances
+			(project "Trompetenlampe"
+				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:LED")
 		(at 148.59 55.88 0)
 		(unit 1)
@@ -2301,6 +2699,74 @@
 			(project "Trompetenlampe"
 				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
 					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Reed")
+		(at 153.67 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4f07f7f3-0ce7-459b-a31b-466cb4cef6a9")
+		(property "Reference" "SW3"
+			(at 153.67 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Reed"
+			(at 153.67 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 153.67 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "reed switch"
+			(at 153.67 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f4e32b59-d34e-4926-9027-7a98e60dec81")
+		)
+		(pin "1"
+			(uuid "078ebd99-6464-41cd-9686-5c91802a0436")
+		)
+		(instances
+			(project "Trompetenlampe"
+				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
+					(reference "SW3")
 					(unit 1)
 				)
 			)
@@ -2856,7 +3322,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 152.4 101.6 0)
+		(at 165.1 152.4 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2865,7 +3331,7 @@
 		(fields_autoplaced yes)
 		(uuid "d46fc68b-8a67-451c-bf63-8e5a49f35af2")
 		(property "Reference" "#PWR03"
-			(at 152.4 107.95 0)
+			(at 165.1 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2874,7 +3340,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 152.4 106.68 0)
+			(at 165.1 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2882,7 +3348,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 152.4 101.6 0)
+			(at 165.1 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2891,7 +3357,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 152.4 101.6 0)
+			(at 165.1 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2900,7 +3366,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 152.4 101.6 0)
+			(at 165.1 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2915,6 +3381,74 @@
 			(project "Trompetenlampe"
 				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Reed")
+		(at 153.67 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f1a6fd35-df33-4158-a9ba-e39b1702f7d1")
+		(property "Reference" "SW2"
+			(at 153.67 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Reed_Increase"
+			(at 153.67 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 153.67 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "reed switch"
+			(at 153.67 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "63ee8ab4-65e3-4e84-aa10-8c14b9bbd632")
+		)
+		(pin "2"
+			(uuid "b39e888f-42c3-4310-a9c5-f5bdc0b2217c")
+		)
+		(instances
+			(project "Trompetenlampe"
+				(path "/74565093-eec5-4901-8b54-4f43dfffaa42"
+					(reference "SW2")
 					(unit 1)
 				)
 			)
