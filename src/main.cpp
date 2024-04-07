@@ -36,6 +36,7 @@ uint32 b_increase_time = 0;
 uint8 analogDuty = 125;
 
 void setup() {
+  Serial.begin(115200);
   analogWriteFreq(4000);
 
   buttonReader.attach_ms(15, updateButtons);
@@ -104,7 +105,7 @@ void lumIncrease() {
     } 
   }
 
-  if (b_increase_State == LONGPRESSFIRST) {
+  if (b_increase_State == LONGPRESSSECOND) {
     if (millis() > (b_increase_time + WAITTIMESECOND)) {
       analogDuty += 10;
       analogWrite(ledPin, analogDuty);
@@ -117,6 +118,7 @@ void lumIncrease() {
 
 
 void lumDecrease() {
+  Serial.println(b_decrease_State);
   if (!onOff) {
     switchOnOff();
     return;
@@ -148,7 +150,7 @@ void lumDecrease() {
     } 
   }
 
-  if (b_decrease_State == LONGPRESSFIRST) {
+  if (b_decrease_State == LONGPRESSSECOND) {
     if (millis() > (b_decrease_time + WAITTIMESECOND)) {
       if (analogDuty == 15) {
         analogDuty = 0;
