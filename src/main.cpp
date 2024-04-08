@@ -2,6 +2,7 @@
 #include <Esp.h>
 #include <Ticker.h>
 #include <ButtonDebounce.h>
+#include <Preferences.h>
 
 
 #define FIRSTPRESS 0
@@ -13,11 +14,14 @@
 
 
 void IRAM_ATTR updateButtons();
+void saveAnalogDuty();
 void switchOnOff();
 void lumIncrease();
 void lumDecrease();
 
 Ticker buttonReader;
+Ticker dutySave;
+Preferences pref;
 ButtonDebounce b_onOff = ButtonDebounce(14, true, false, *switchOnOff);
 ButtonDebounce b_decrease = ButtonDebounce(13, true, false, *lumDecrease);
 ButtonDebounce b_increase = ButtonDebounce(12, true, false, *lumIncrease);
@@ -40,7 +44,11 @@ void setup() {
   analogWriteFreq(4000);
 
   buttonReader.attach_ms(15, updateButtons);
+  dutySave.attach(30000, saveAnalogDuty);
   onOff = true;
+
+  pref.begin("duty", false);
+  analogDuty = pref.getUChar("analogD", 100);
   analogWrite(ledPin, analogDuty);
 }
 
@@ -164,3 +172,9 @@ void lumDecrease() {
     } 
   }
 }
+
+
+void saveAnalogDuty() {
+  pref.putUChar("analogD", analogDuty);
+}
+//EOF
