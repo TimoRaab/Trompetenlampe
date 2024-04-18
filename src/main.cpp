@@ -18,30 +18,46 @@ void saveAnalogDuty();
 void switchOnOff();
 void lumIncrease();
 void lumDecrease();
+void changePWMDuty(uint16_t duty);
 
 Ticker buttonReader;
 Ticker dutySave;
 Preferences pref;
-ButtonDebounce b_onOff = ButtonDebounce(14, true, false, *switchOnOff);
-ButtonDebounce b_decrease = ButtonDebounce(13, true, false, *lumDecrease);
-ButtonDebounce b_increase = ButtonDebounce(12, true, false, *lumIncrease);
+
+#ifdef boardEsp8266
+  #define onOffPin 14
+  #define decreasePin 13
+  #define increasePin 12
+  #define ledPin 16
+#endif
+#ifdef boardEsp32
+  #define onOffPin 3
+  #define decreasePin 4
+  #define increasePin 5
+  #define ledPin 2
+  #define pwmChannel 0
+#endif
 
 
 
-const int ledPin = 16; 
+ButtonDebounce b_onOff = ButtonDebounce(onOffPin, true, false, *switchOnOff);
+ButtonDebounce b_decrease = ButtonDebounce(decreasePin, true, false, *lumDecrease);
+ButtonDebounce b_increase = ButtonDebounce(increasePin, true, false, *lumIncrease);
+const int pwmPin = ledPin; 
 
 bool onOff = true;
-uint8 b_onOff_State = FIRSTPRESS;
-uint8 b_decrease_State = FIRSTPRESS;
-uint8 b_increase_State = FIRSTPRESS;
-uint32 b_decrease_time = 0;
-uint32 b_increase_time = 0;
+uint8_t b_onOff_State = FIRSTPRESS;
+uint8_t b_decrease_State = FIRSTPRESS;
+uint8_t b_increase_State = FIRSTPRESS;
+uint32_t b_decrease_time = 0;
+uint32_t b_increase_time = 0;
 
-uint8 analogDuty = 125;
+uint16_t analogDuty = 125;
+
+
 
 void setup() {
   Serial.begin(115200);
-  analogWriteFreq(4000);
 
   buttonReader.attach_ms(15, updateButtons);
   dutySave.attach(30000, saveAnalogDuty);
@@ -49,7 +65,17 @@ void setup() {
 
   pref.begin("duty", false);
   analogDuty = pref.getUChar("analogD", 100);
-  analogWrite(ledPin, analogDuty);
+
+  #ifdef boardEsp8266
+    analogWriteFreq(4000);
+  #endif
+  
+  #ifdef boardEsp32
+    ledcSetup(0, 5000, 8);  //use 8 bit for now
+    ledcAttachPin(pwmPin, 0);
+  #endif
+
+  changePWMDuty(analogDuty);
 }
 
 void loop() {
@@ -76,12 +102,12 @@ void IRAM_ATTR updateButtons() {
 void switchOnOff() {
   if (b_onOff_State == LONGPRESSFIRST) return;
   b_onOff_State = LONGPRESSFIRST;
-  uint8 tempAnalog = analogDuty;
+  uint16_t tempAnalog = analogDuty;
   if (onOff) {
     tempAnalog = 0;
   } 
   onOff = !onOff;
-  analogWrite(ledPin, tempAnalog);
+  changePWMDuty(tempAnalog);
 }
 
 
@@ -97,7 +123,7 @@ void lumIncrease() {
     } else {
       analogDuty += 10;
     }
-    analogWrite(ledPin, analogDuty);
+    changePWMDuty(analogDuty);
     b_increase_time = millis();
     b_increase_State = LONGPRESSFIRST;
     return;
@@ -106,7 +132,7 @@ void lumIncrease() {
   if (b_increase_State == LONGPRESSFIRST) {
     if (millis() > (b_increase_time + WAITTIMEFIRST)) {
       analogDuty += 10;
-      analogWrite(ledPin, analogDuty);
+      changePWMDuty(analogDuty);
       b_increase_time = millis();
       b_increase_State = LONGPRESSSECOND;
       return;
@@ -116,7 +142,7 @@ void lumIncrease() {
   if (b_increase_State == LONGPRESSSECOND) {
     if (millis() > (b_increase_time + WAITTIMESECOND)) {
       analogDuty += 10;
-      analogWrite(ledPin, analogDuty);
+      changePWMDuty(analogDuty);
       b_increase_time = millis();
       b_increase_State = LONGPRESSSECOND;
       return;
@@ -138,7 +164,7 @@ void lumDecrease() {
     } else {
       analogDuty -= 10;
     }
-    analogWrite(ledPin, analogDuty);
+    changePWMDuty(analogDuty);
     b_decrease_time = millis();
     b_decrease_State = LONGPRESSFIRST;
     return;
@@ -151,7 +177,7 @@ void lumDecrease() {
       } else {
         analogDuty -= 10;
       }
-      analogWrite(ledPin, analogDuty);
+      changePWMDuty(analogDuty);
       b_decrease_time = millis();
       b_decrease_State = LONGPRESSSECOND;
       return;
@@ -165,7 +191,7 @@ void lumDecrease() {
       } else {
         analogDuty -= 10;
       }
-      analogWrite(ledPin, analogDuty);
+      changePWMDuty(analogDuty);
       b_decrease_time = millis();
       b_decrease_State = LONGPRESSSECOND;
       return;
@@ -176,5 +202,15 @@ void lumDecrease() {
 
 void saveAnalogDuty() {
   pref.putUChar("analogD", analogDuty);
+}
+
+
+void changePWMDuty(uint16_t duty) {
+  #ifdef boardEsp8266
+    analogWrite(pwmPin, duty);
+  #endif
+  #ifdef boardEsp32
+    ledcWrite(0, duty);
+  #endif
 }
 //EOF
