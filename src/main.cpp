@@ -4,21 +4,14 @@
 #include <ButtonDebounce.h>
 #include <Preferences.h>
 
+#include "definitions.h"
+#include "variables.h"
 
-#define FIRSTPRESS 0
-#define LONGPRESSFIRST 1
-#define LONGPRESSSECOND 2
-
-#define WAITTIMEFIRST 1000
-#define WAITTIMESECOND 500
+#include ".\dimming\dimming.h"
 
 
 void IRAM_ATTR updateButtons();
 void saveAnalogDuty();
-void switchOnOff();
-void lumIncrease();
-void lumDecrease();
-void changePWMDuty(uint16_t duty);
 
 Ticker buttonReader;
 Ticker dutySave;
@@ -49,12 +42,7 @@ bool onOff = true;
 uint8_t b_onOff_State = FIRSTPRESS;
 uint8_t b_decrease_State = FIRSTPRESS;
 uint8_t b_increase_State = FIRSTPRESS;
-uint32_t b_decrease_time = 0;
-uint32_t b_increase_time = 0;
-
-uint16_t analogDuty = 125;
-
-
+int16_t analogDuty = 125;        //Just for first starts
 
 void setup() {
   Serial.begin(115200);
@@ -71,7 +59,7 @@ void setup() {
   #endif
   
   #ifdef boardEsp32
-    ledcSetup(0, 5000, 8);  //use 8 bit for now
+    ledcSetup(0, 5000, PWMRESOLUTION);  //use 8 bit for now
     ledcAttachPin(pwmPin, 0);
   #endif
 
@@ -79,10 +67,10 @@ void setup() {
 }
 
 void loop() {
-  if (!b_onOff.anyPressed(true)) {
+  if (!b_onOff.anyPressed(true)) {  //switch on off function
     b_onOff_State = FIRSTPRESS;
   }
-  if (!b_decrease.anyPressed(true)) {
+  if (!b_decrease.anyPressed(true)) { //
     b_decrease_State = FIRSTPRESS;
   }
   if (!b_increase.anyPressed(true)) {
@@ -99,105 +87,7 @@ void IRAM_ATTR updateButtons() {
 }
 
 
-void switchOnOff() {
-  if (b_onOff_State == LONGPRESSFIRST) return;
-  b_onOff_State = LONGPRESSFIRST;
-  uint16_t tempAnalog = analogDuty;
-  if (onOff) {
-    tempAnalog = 0;
-  } 
-  onOff = !onOff;
-  changePWMDuty(tempAnalog);
-}
 
-
-void lumIncrease() {
-  if (!onOff) {
-    switchOnOff();
-    return;
-  }
-  if (analogDuty == 255) return;
-  if (b_increase_State == FIRSTPRESS) {
-    if (analogDuty == 0) {
-      analogDuty = 15;
-    } else {
-      analogDuty += 10;
-    }
-    changePWMDuty(analogDuty);
-    b_increase_time = millis();
-    b_increase_State = LONGPRESSFIRST;
-    return;
-  }
-  
-  if (b_increase_State == LONGPRESSFIRST) {
-    if (millis() > (b_increase_time + WAITTIMEFIRST)) {
-      analogDuty += 10;
-      changePWMDuty(analogDuty);
-      b_increase_time = millis();
-      b_increase_State = LONGPRESSSECOND;
-      return;
-    } 
-  }
-
-  if (b_increase_State == LONGPRESSSECOND) {
-    if (millis() > (b_increase_time + WAITTIMESECOND)) {
-      analogDuty += 10;
-      changePWMDuty(analogDuty);
-      b_increase_time = millis();
-      b_increase_State = LONGPRESSSECOND;
-      return;
-    } 
-  }
-}
-
-
-void lumDecrease() {
-  Serial.println(b_decrease_State);
-  if (!onOff) {
-    switchOnOff();
-    return;
-  }
-  if (analogDuty == 0) return;
-  if (b_decrease_State == FIRSTPRESS) {
-    if (analogDuty == 15) {
-      analogDuty = 0;
-    } else {
-      analogDuty -= 10;
-    }
-    changePWMDuty(analogDuty);
-    b_decrease_time = millis();
-    b_decrease_State = LONGPRESSFIRST;
-    return;
-  }
-  
-  if (b_decrease_State == LONGPRESSFIRST) {
-    if (millis() > (b_decrease_time + WAITTIMEFIRST)) {
-      if (analogDuty == 15) {
-        analogDuty = 0;
-      } else {
-        analogDuty -= 10;
-      }
-      changePWMDuty(analogDuty);
-      b_decrease_time = millis();
-      b_decrease_State = LONGPRESSSECOND;
-      return;
-    } 
-  }
-
-  if (b_decrease_State == LONGPRESSSECOND) {
-    if (millis() > (b_decrease_time + WAITTIMESECOND)) {
-      if (analogDuty == 15) {
-        analogDuty = 0;
-      } else {
-        analogDuty -= 10;
-      }
-      changePWMDuty(analogDuty);
-      b_decrease_time = millis();
-      b_decrease_State = LONGPRESSSECOND;
-      return;
-    } 
-  }
-}
 
 
 void saveAnalogDuty() {
@@ -205,12 +95,5 @@ void saveAnalogDuty() {
 }
 
 
-void changePWMDuty(uint16_t duty) {
-  #ifdef boardEsp8266
-    analogWrite(pwmPin, duty);
-  #endif
-  #ifdef boardEsp32
-    ledcWrite(0, duty);
-  #endif
-}
+
 //EOF
