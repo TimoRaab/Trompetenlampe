@@ -9,8 +9,18 @@
 
 #include ".\dimming\dimming.h"
 
-
+/**
+ * @brief Function to update the button history.
+ * 
+ * The function calls the update function for all buttons used. Is called periodically 
+ * every BUTTONUPDATETIME ms. 
+ */
 void IRAM_ATTR updateButtons();
+/**
+ * @brief Saves the current duty cycle value.
+ * 
+ * Will be saved every DUTYSAVETIME s in uC storage.  
+ */
 void saveAnalogDuty();
 
 Ticker buttonReader;
@@ -47,8 +57,8 @@ int16_t analogDuty = 125;        //Just for first starts
 void setup() {
   Serial.begin(115200);
 
-  buttonReader.attach_ms(15, updateButtons);
-  dutySave.attach(30000, saveAnalogDuty);
+  buttonReader.attach_ms(BUTTONUPDATETIME, updateButtons);
+  dutySave.attach(DUTYSAVETIME, saveAnalogDuty);
   onOff = true;
 
   pref.begin("duty", false);
@@ -85,9 +95,6 @@ void IRAM_ATTR updateButtons() {
   b_decrease.updateButton();
   b_increase.updateButton();
 }
-
-
-
 
 
 void saveAnalogDuty() {
