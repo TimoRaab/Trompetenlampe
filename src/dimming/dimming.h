@@ -38,7 +38,7 @@ void changeDimming(int8_t dir);
  * @param duty duty cycle for PWM signal
  * @note Coerces the duty cycle in a range. 
  */
-void changePWMDuty(uint16_t duty, boolean coerce = true);
+int16_t changePWMDuty(uint16_t duty, boolean coerce = true);
 
 /**
  * @brief Coerces the duty value in a predefined range.

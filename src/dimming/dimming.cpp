@@ -13,7 +13,6 @@ uint32_t b_increase_Time = 0;
 void switchOnOff() {
   if (b_onOff_State == LONGPRESSWAIT) return;
   b_onOff_State = LONGPRESSWAIT;
-  uint16_t tempAnalog = analogDuty;
   onOff = !onOff;
 
   if (!onOff) {
@@ -21,7 +20,7 @@ void switchOnOff() {
     return;
   } 
   
-  changePWMDuty(tempAnalog);
+  changePWMDuty(analogDuty);
 }
 
 void lumIncrease() {
@@ -32,11 +31,10 @@ void lumDecrease() {
 }
 
 //PWM functions
-void changePWMDuty(uint16_t duty, boolean coerce /*=true*/) {
+int16_t changePWMDuty(uint16_t duty, boolean coerce /*=true*/) {
     if (coerce){
         duty = coerceDimming(duty);
     }
-    analogDuty = duty;
 
     #ifdef boardEsp8266
         analogWrite(pwmPin, duty);
@@ -44,6 +42,7 @@ void changePWMDuty(uint16_t duty, boolean coerce /*=true*/) {
     #ifdef boardEsp32
         ledcWrite(0, duty);
     #endif
+    return duty;
 }
 
 int16_t coerceDimming(int16_t tempAnalogDuty) {
@@ -85,7 +84,7 @@ void changeDimming(int8_t dir) {
     //Action to first press
     if (*pointer2State == FIRSTPRESS) {
         analogDuty += (dir*FIRSTDIMSTEP);
-        changePWMDuty(analogDuty);
+        analogDuty = changePWMDuty(analogDuty);
         *pointer2Time = millis();
         *pointer2State = LONGPRESSWAIT;
         return;
@@ -109,7 +108,7 @@ void changeDimming(int8_t dir) {
         }
         *pointer2Time = millis();
         analogDuty += dir*(DIMRATE*timePassed/1000);;
-        changePWMDuty(analogDuty);
+        analogDuty = changePWMDuty(analogDuty);
 
         #ifdef DEBUG
         Serial.println("_______________________");
