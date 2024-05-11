@@ -14,12 +14,16 @@ void switchOnOff() {
   if (b_onOff_State == LONGPRESSWAIT) return;
   b_onOff_State = LONGPRESSWAIT;
   uint16_t tempAnalog = analogDuty;
-  if (onOff) {
-    tempAnalog = 0;
-  } 
   onOff = !onOff;
+
+  if (!onOff) {
+    changePWMDuty(0, false); // switch off, do not coerce
+    return;
+  } 
+  
   changePWMDuty(tempAnalog);
 }
+
 void lumIncrease() {
     changeDimming(+1);
 }
@@ -28,8 +32,12 @@ void lumDecrease() {
 }
 
 //PWM functions
-void changePWMDuty(uint16_t duty) {
-    duty = coerceDimming(duty);
+void changePWMDuty(uint16_t duty, boolean coerce /*=true*/) {
+    if (coerce){
+        duty = coerceDimming(duty);
+    }
+    analogDuty = duty;
+
     #ifdef boardEsp8266
         analogWrite(pwmPin, duty);
     #endif
@@ -37,6 +45,7 @@ void changePWMDuty(uint16_t duty) {
         ledcWrite(0, duty);
     #endif
 }
+
 int16_t coerceDimming(int16_t tempAnalogDuty) {
     if (tempAnalogDuty > DIMHIGHLIMIT) {
         return DIMHIGHLIMIT;
@@ -94,8 +103,21 @@ void changeDimming(int8_t dir) {
     //dim lamp according to dimrate
     if (*pointer2State == LONGPRESSACTION) {
         uint32_t timePassed = millis() - *pointer2Time;
+        int16_t tempValue = dir*(DIMRATE*timePassed/1000);
+        if (tempValue == 0) {
+            return;
+        }
         *pointer2Time = millis();
-        analogDuty += dir*(timePassed/1000*DIMRATE);
+        analogDuty += dir*(DIMRATE*timePassed/1000);;
+        changePWMDuty(analogDuty);
+
+        #ifdef DEBUG
+        Serial.println("_______________________");
+        Serial.println(timePassed);
+        Serial.println(DIMRATE*timePassed/1000);
+        Serial.println(analogDuty);
+        #endif
+
         return;
     }
 }

@@ -55,7 +55,13 @@ uint8_t b_increase_State = FIRSTPRESS;
 int16_t analogDuty = 125;        //Just for first starts
 
 void setup() {
+
+  #ifdef DEBUG
   Serial.begin(115200);
+  while(!Serial);
+  delay(1000);
+  Serial.println("Start");
+  #endif
 
   buttonReader.attach_ms(BUTTONUPDATETIME, updateButtons);
   dutySave.attach(DUTYSAVETIME, saveAnalogDuty);
