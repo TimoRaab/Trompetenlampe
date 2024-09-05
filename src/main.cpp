@@ -43,9 +43,12 @@ Preferences pref;
 
 
 
-ButtonDebounce b_onOff = ButtonDebounce(onOffPin, true, false, *switchOnOff);
-ButtonDebounce b_decrease = ButtonDebounce(decreasePin, true, false, *lumDecrease);
-ButtonDebounce b_increase = ButtonDebounce(increasePin, true, false, *lumIncrease);
+//ButtonDebounce b_onOff = ButtonDebounce(onOffPin, true, false, *switchOnOff);
+//ButtonDebounce b_decrease = ButtonDebounce(decreasePin, true, false, *lumDecrease);
+//ButtonDebounce b_increase = ButtonDebounce(increasePin, true, false, *lumIncrease);
+ButtonDebounce b_onOff = ButtonDebounce(onOffPin, INPUT, true, false, *switchOnOff);
+ButtonDebounce b_decrease = ButtonDebounce(decreasePin, INPUT, true, false, *lumDecrease);
+ButtonDebounce b_increase = ButtonDebounce(increasePin, INPUT, true, false, *lumIncrease);
 const int pwmPin = ledPin; 
 
 bool onOff = true;
